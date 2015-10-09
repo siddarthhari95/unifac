@@ -1,5 +1,5 @@
 <html>
-<body background="slide-image-1.jpg" style="background-size: 100% 100%;">
+<body background="slide-image-1.jpg" style="background-size: 50% 100%;">
 </html>
 
 <?php
