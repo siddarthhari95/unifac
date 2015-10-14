@@ -5,7 +5,15 @@ $db = mysql_connect('localhost', 'project', 'project') or die('Unable to Connect
 	
 	
 	function timetable(){
-		$subs = array("OS", "OS-Lab", "DBMS-Lab", "DBMS", "NCP-Lab", "NCP");
+		$subs = array();
+		$result = mysql_query('select course_id, course_name from CSE_courses') or die(mysql_error($db));
+		$count = 0;
+		while($row = mysql_fetch_array($result)){
+			//echo '<option>'.$row['course_name'].' - '.$row['course_id'].'</option>';
+			array_push($subs, $row['course_id'].'-'.$row['course_name']);
+			$count++;
+		}
+			
 		echo '
 		<table border="1px">';
 			echo '<form action="register_portal_2.php" method="post">';
@@ -17,13 +25,12 @@ $db = mysql_connect('localhost', 'project', 'project') or die('Unable to Connect
 			for($i=1;$i<8;$i++)
 			{
 				echo '<td><select name="course'.$j.$i.'"> <option selected="selected">free</option>';
-					 
-						for($k=0;$k<=6;$k++){
-							echo '<option>'.$subs[$k].'</option>';
-						}
+				
+				for($k=0; $k<$count; $k++){
+					echo '<option>'.$subs[$k].'</option>';
+				}
 					
-				echo '</select>
-				</td>';
+				echo '</select></td>';
 			}
 			
 			echo '</tr>';

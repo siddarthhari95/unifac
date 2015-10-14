@@ -27,7 +27,13 @@
 			echo '</tr>';	
 		}
 	echo '</table>';
-	echo '<a href="update.php">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form action="logout.php" method="POST">
+	echo '<a href="update.php">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	
+	echo '<br><br><form action="swap_0.php" method="POST">';
+	echo '<input type="submit" name="submit" value="Swap">';
+	echo '</form>';
+	
+	echo '<form action="logout.php" method="POST">
 		<input type="submit" name="submit" value="Signout"></center>';
 	
 	?>

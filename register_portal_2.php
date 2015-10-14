@@ -20,13 +20,13 @@ if($_POST['submit'] == "Save"){
 	
 	for($i=1;$i<7;$i++)
 	{
-		$c1 = $_POST['course'.$i.'1'];
-		$c2 = $_POST['course'.$i.'2'];
-		$c3 = $_POST['course'.$i.'3'];
-		$c4 = $_POST['course'.$i.'4'];
-		$c5 = $_POST['course'.$i.'5'];
-		$c6 = $_POST['course'.$i.'6'];
-		$c7 = $_POST['course'.$i.'7'];
+		$c1 = substr($_POST['course'.$i.'1'], 0, 6);
+		$c2 = substr($_POST['course'.$i.'2'], 0, 6);
+		$c3 = substr($_POST['course'.$i.'3'], 0, 6);
+		$c4 = substr($_POST['course'.$i.'4'], 0, 6);
+		$c5 = substr($_POST['course'.$i.'5'], 0, 6);
+		$c6 = substr($_POST['course'.$i.'6'], 0, 6);
+		$c7 = substr($_POST['course'.$i.'7'], 0, 6);
 		$query = 'insert into '.$_SESSION['uname'].'_table (first_hour, second_hour, third_hour, fourth_hour, fifth_hour, sixth_hour, seventh_hour) values
 					("'.$c1.'", "'.$c2.'", "'.$c3.'", "'.$c4.'", "'.$c5.'", "'.$c6.'", "'.$c7.'")';
 		mysql_query($query, $con) or die(mysql_error($con));
@@ -36,8 +36,3 @@ if($_POST['submit'] == "Save"){
 }
 
 ?>
-<!--
-<a href="update.php">Edit</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="view.php">View</a>
--->
