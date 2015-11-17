@@ -7,9 +7,19 @@
 	$query = 'select * from '.$_SESSION['uname'].'_table';	
 	$result = mysql_query($query, $con) or die(mysql_error($con));
 	
-	$subs = array("OS", "OS-Lab", "DBMS-Lab", "DBMS", "NCP-Lab", "NCP");
-	
-	echo '<table>';
+	echo '<center>';
+	//$subs = array("OS", "OS-Lab", "DBMS-Lab", "DBMS", "NCP-Lab", "NCP");
+	$result1 = mysql_query('select course_id, course_name from CSE_courses') or die(mysql_error($db));
+	$subs = array();
+	$desc = array();
+	$count = 0;
+	while($row = mysql_fetch_array($result1)){
+			//echo '<option>'.$row['course_name'].' - '.$row['course_id'].'</option>';
+			array_push($subs, $row['course_id']);
+			array_push($desc, $row['course_name']);
+			$count++;
+		}
+	echo '<table border="1px">';
 	$j=1;
 	echo '<form action="save.php" method="POST">';
 	while($row = mysql_fetch_assoc($result)){
@@ -27,7 +37,7 @@
 			
 			echo '<td><select name="course'.$j.($i+1).'">';
 			echo '<option selected="selected">'.$hour[$i].'</option>';
-			for($k=0;$k<6;$k++)
+			for($k=0;$k<$count;$k++)
 			{	
 				
 				echo '<option>'.$subs[$k].'</option>';
@@ -37,8 +47,11 @@
 		echo '</tr>';
 		$j++;
 	}
-	echo '<tr><td><input type="submit" name="submit" value="Commit Changes" /></td></tr>';
+	echo '</table><br><br>';
+	for($i=0;$i<$count;$i++){
+		echo $subs[$i] . ' - ' . $desc[$i] . '<br/>';
+	}
+	echo '<br><br><tr><td><input type="submit" name="submit" value="Commit Changes" /></td></tr>';
 	echo '</form>';
-	echo '</table>';
-	echo '<form action="logout.php" method="POST"><input type="submit" name="submit" value="Signout"></form>';
+	echo '<form action="logout.php" method="POST"><input type="submit" name="submit" value="Signout"></form></center>';
 ?>

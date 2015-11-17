@@ -1,6 +1,8 @@
 <?php
+	session_start();
 	include 'config.php';
 	if($_POST['submit'] == 'Swap'){
+		echo '<h3>' . $_SESSION['uname'] . '</h3>';
 ?>
 
 <br><br><center>

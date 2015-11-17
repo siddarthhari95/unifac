@@ -33,7 +33,17 @@
 	echo '<input type="submit" name="submit" value="Swap">';
 	echo '</form>';
 	
+	echo '<h3>Received Requests</h3>';
+	$result = mysql_query('select username from '.$_SESSION['uname'].'_swap_table where check1=1') or die(mysql_error($db));
+	while($row = mysql_fetch_array($result)){
+		echo '<i>'.$row['username'].'</i></br>';
+	}
+	echo '<h3>Sent Requests</h3>';
+	$result = mysql_query('select username from '.$_SESSION['uname'].'_swap_table where check1=0') or die(mysql_error($db));
+	while($row = mysql_fetch_array($result)){
+			echo '<i>'.$row['username'].'</i><br>';	
+	}
+	
 	echo '<form action="logout.php" method="POST">
 		<input type="submit" name="submit" value="Signout"></center>';
-	
 	?>

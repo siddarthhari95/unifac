@@ -18,6 +18,16 @@ if($_POST['submit'] == "Save"){
 				)';
 	mysql_query($query, $con) or die(mysql_error($con));
 	
+	$query = 'create table if not exists '.$_SESSION['uname'].'_swap_table
+				(
+				id 				int   not null auto_increment,
+				username 			varchar(255),
+				check1			int,
+					primary key(id)
+				)';
+	mysql_query($query, $con) or die(mysql_error($con));
+	
+	
 	for($i=1;$i<7;$i++)
 	{
 		$c1 = substr($_POST['course'.$i.'1'], 0, 6);

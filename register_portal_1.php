@@ -6,11 +6,13 @@ $db = mysql_connect('localhost', 'project', 'project') or die('Unable to Connect
 	
 	function timetable(){
 		$subs = array();
+		$desc = array();
 		$result = mysql_query('select course_id, course_name from CSE_courses') or die(mysql_error($db));
 		$count = 0;
 		while($row = mysql_fetch_array($result)){
 			//echo '<option>'.$row['course_name'].' - '.$row['course_id'].'</option>';
-			array_push($subs, $row['course_id'].'-'.$row['course_name']);
+			array_push($subs, $row['course_id']);
+			array_push($desc, $row['course_name']);
 			$count++;
 		}
 			
@@ -35,6 +37,11 @@ $db = mysql_connect('localhost', 'project', 'project') or die('Unable to Connect
 			
 			echo '</tr>';
 			}echo '</table>';
+			
+			for($i=0;$i<$count;$i++){
+				echo $subs[$i] . ' - ' . $desc[$i] . '<br/>';
+			}
+			
 			echo '<input type="submit" name="submit" value="Save"></form>';
 	}
 
