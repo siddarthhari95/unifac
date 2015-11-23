@@ -28,4 +28,8 @@ if($_POST['submit'] == "Sign Up"){
 	header('location:register.php');
 }
 
+if($_POST['submit'] == "Admin"){
+	header("location:admin.php");
+}
+
 ?>

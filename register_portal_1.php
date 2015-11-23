@@ -15,14 +15,20 @@ $db = mysql_connect('localhost', 'project', 'project') or die('Unable to Connect
 			array_push($desc, $row['course_name']);
 			$count++;
 		}
-			
+		$days = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+		$hours = array('First hour', 'Second hour', 'Third hour', 'Fourth hour', 'Fifth hour', 'Sixth hour', 'Seventh hour');
 		echo '
-		<table border="1px">';
+		<center><table border="1px">';
 			echo '<form action="register_portal_2.php" method="post">';
+			echo '<tr><td></td	>';
+			for($x=0;$x<7;$x++){
+				echo '<td>'.$hours[$x].'</td>';
+			}
+			echo '</tr>';
 			for($j=1;$j<7;$j++)
 			{
 		
-			echo '<tr>';
+			echo '<tr><td><b>'.$days[$j-1].'</b></td>';
 			
 			for($i=1;$i<8;$i++)
 			{
@@ -44,7 +50,7 @@ $db = mysql_connect('localhost', 'project', 'project') or die('Unable to Connect
 			
 			echo '<input type="submit" name="submit" value="Save"></form>';
 	}
-
+echo '</center>';
 
 if($_POST['submit'] == 'Back to Login'){header('Location:index.php');}
 	

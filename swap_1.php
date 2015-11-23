@@ -6,8 +6,10 @@
 	
 	if($_POST['submit'] == 'SWAP'){
 		$date = $_POST['date'];
+		$_SESSION['date'] = $date;
 		$day = date('l', strtotime($date));
 		echo "<br><br><br>";
+		$_SESSION['hour'] = $_POST['hour'];
 		
 		if($day == 'Monday') $i =1;
 		if($day == 'Tuesday') $i =2;
@@ -24,11 +26,13 @@
 		while($row = mysql_fetch_array($result)){
 			$faculty_list = array();
 			$course = $row[''.$_POST['hour']];
+			$_SESSION['course_id'] = $course;
 			$result3 = mysql_query('select course_name from cse_courses where course_id="'.$course.'"') or die(mysql_error($con));
 			$row = mysql_fetch_array($result3);
 			echo '<b>'.$course.' - '.$row['course_name'].'</b><br>';
+		/*-----*/	$_SESSION['course_name'] = $row['course_name'];
 			if($course != "free"){
-				$result1 = mysql_query('select username from '.$course) or die(mysql_error($db));
+				$result1 = mysql_query('select username from '.$course) or die(mysql_error($con));
 				while($row1 = mysql_fetch_array($result1)){
 					$result2 = mysql_query('select '.$_POST['hour'].' from '.$row1["username"].'_table where day='.$i);
 					while($row2 = mysql_fetch_array($result2)){

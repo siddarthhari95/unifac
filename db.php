@@ -49,6 +49,15 @@ $var = 'insert into course_faculty(dept,course_code,fac_id) values
 			("ECE_FAC_102","nadeem","ECE"),
 			("ECE_FAC_103","aazad","ECE")'
 			;*/
+			
+	/*$var = 'insert into cse_courses(course_id, course_name) values
+			("CSE400", "Computer Graphics"),
+			("CSE421", "Net Centric Programming"),
+			("CSE430", "Computer Language Engineering"),
+			("CSE455", "Data Warehousing and Data Mining")';*/
+	$var = 'insert into cse400 (username)values
+			("aarthi"),
+			("archana")';
 mysql_query($var, $con) or die(mysql_error($con));
 
 ?>
