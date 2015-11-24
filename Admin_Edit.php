@@ -11,14 +11,14 @@ $query = 'select username from login';
 	<?php
 		echo '<select name="optionsubmit">';
 			while($row = mysql_fetch_array($result)){
-				echo '<option>'.$row['username'].'</option>';
+			 	echo '<option>'.$row['username'].'</option>';
 			}
 		echo '</select>';
 		
 		echo '<input type="submit" name="submit" value="EDIT"></br>';
 		echo '<input type="submit" name="submit" value="GOBACK">
 		</br></form>
-		<form action="logout.php" method="POST">
+		<form action="Alogout.php" method="POST">
 		<input type="submit" name="submit" value="Signout">
 		</form></center>';
 		

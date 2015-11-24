@@ -24,7 +24,8 @@
 </div>
 <div style="background:#80BFFF; position:absolute;left:550px;top:120px;right:0px;left:130px;bottom:0px;">
 
-	<div style="left:400px;position:relative;top:100px;"><form action="choice.php" method="post">
+	<div style="left:400px;position:relative;top:100px;">
+	<form action="choice.php" method="post">
 		<table>
 			<tr>
 				<td style="font-family:Lucida Console;font-size:23"><b>UserName</b></td>

@@ -6,6 +6,7 @@ mysql_select_db('project', $con) or die(mysql_error($con));
 if($_POST['submit']=="signin"){
 	
 	$uname = $_POST['uname'];
+	$_SESSION['uname'] = $uname;
 	$pass = $_POST['pass'];
 	if($uname=="" || $pass==""){session_destroy();header('location:admin.php');die();}//checks for empty input
 	$result = mysql_query('select username from alogin where username="'.$uname.'" and password="'.$pass.'"') or die(mysql_error($con));

@@ -55,7 +55,7 @@ if($_POST['submit']=="EDIT"){
 	}
 	echo '<br><br><tr><td><input type="submit" name="submit" value="Commit Changes" /></td></tr>';
 	echo '</form>';
-	echo '<form action="logout.php" method="POST"><input type="submit" name="submit" value="Signout"></form></center>';
+	echo '<form action="Alogout.php" method="POST"><input type="submit" name="submit" value="Signout"></form></center>';
 
 }
 if($_POST['submit']=="GOBACK"){header('location:Adashboard.php');

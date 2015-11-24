@@ -1,5 +1,5 @@
 <?php
-
+//saves the time table in database modified by admin.
 	$db = mysql_connect('localhost', 'project', 'project') or die('Unable to Connect');
 	mysql_select_db('project', $db) or die(mysql_error($db));
 

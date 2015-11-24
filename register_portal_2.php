@@ -24,7 +24,7 @@ if($_POST['submit'] == "Save"){
 				username 			varchar(255),
 				course_id			varchar(6),
 				hour				varchar(15),
-				date				date,
+				date				date,	
 				check1			int,
 					primary key(id)
 				)';
